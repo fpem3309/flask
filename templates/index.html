@@ -1,32 +1,100 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cloudtype - Flask</title>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.3/dist/full.css" rel="stylesheet" type="text/css" />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2/dist/tailwind.min.css" rel="stylesheet" type="text/css" />
-  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+  <title>Document</title>
 </head>
 <body>
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content flex-col lg:flex-row-reverse">
-    <img src="{{ url_for('static', filename='img/flask.webp') }}" class="w-36 rounded-lg md:ml-5 lg:ml-5"  alt="flask"/>
+  <div>
     <div>
-      <h1 class="text-5xl font-bold">Flask</h1>
-      <p class="py-6">클라우드타입에서 배포한 Flask 어플리케이션입니다.</p>
-      <button type="button" onclick="window.open('https://github.com/cloudtype-examples/java-springboot')" class="btn btn-outline rounded">
-        GitHub
-      </button>
-      <button type="button" onclick="window.open('https://docs.cloudtype.io/')" class="btn btn-outline rounded">
-        Docs
-      </button>
-      <button type="button" onclick="window.open('https://discord.gg/U7HX4BA6hu')" class="btn btn-outline rounded">
-        Discord
-      </button>
+      <p><a href="/data">ketchup data</a></p>
+      <p><a href="/sentence">ketchup sentence</a></p>
+    </div>
+
+    <hr>
+
+    <div>
+      <h4> GPT Test </h4>
+      <form method="post" action="/gpt">
+      <p>System TEXT = <input type="text" name="system_text" value="Analyze the emotions of this sentence, score the emotions from 'Robert Plutchik's Emotion Wheel' from 0 to 10, and send the top 5 output JSON."></p>
+      <p>User TEXT = <input type="text" name="user_text" value="그건 그렇게 하는게 아닌 것 같아"></p>
+      <button type="submit">Run</button>
+      </form>
+    </div>
+
+    <hr>
+
+    <div>
+      <h4> GPT 이미지 파악 </h4>
+      <form method="post" action="/gpt-img">
+      <p>User TEXT = <input type="text" name="user_text" value="이 이미지는 뭔가요?"></p>
+      <p>Img URL = <input type="text" name="img_url" value="https://firebasestorage.googleapis.com/v0/b/ketchup-e6dc3.appspot.com/o/2D%2Fcharacter%2Fofficeworker%2Fofficeworker(m)_grateful.png?alt=media&token=279c45ae-aee8-4bf0-a644-b67e229d0ce8"></p>
+      <button type="submit">Run</button>
+      </form>
+    </div>
+
+    <div>
+      <h4> GPT Prop </h4>
+      <form method="post" action="/gpt-prop">
+      <p>User TEXT = <input type="text" name="system_text" value="You must choose one of the following answers: animal, bag, Digital, Fashion, Food, Furniture, Hairband, Phrases"></p>
+      <p>Prop = <input type="text" name="user_text" value="빵"></p>
+      <button type="submit">Run</button>
+      </form>
     </div>
   </div>
-</div>
 </body>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 5% 20%;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  
+  a:hover {
+    color: #666;
+  }
+  
+  hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #666;
+  }
+  
+</style>
 </html>
